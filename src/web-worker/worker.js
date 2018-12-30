@@ -27,12 +27,12 @@ export default code => {
         // Handle result
         if (e.data) {
           if (e.data.hasOwnProperty('error')) {
-            rej(e.data.error)
+            rej('Something went wrong')
           } else {
             res(e.data)
           }
         } else {
-          rej(e.data.error)
+          rej('Something went wrong')
         }
       }
     } else {

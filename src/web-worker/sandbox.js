@@ -6,7 +6,7 @@ const sandbox = () => {
       postMessage(result)
     } catch (error) {
       postMessage({
-        error: 'Something went wrong',
+        error,
       })
     }
   }
