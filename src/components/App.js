@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p>Algo Runner</p>
-          <button onClick={() => evalCode()}>Click!</button>
+          <button onClick={() => evalCode('2 + 2')}>Click!</button>
         </header>
       </div>
     )

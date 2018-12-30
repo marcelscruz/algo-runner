@@ -1,18 +1,17 @@
-const workercode = () => {
+const sandbox = () => {
   // eslint-disable-next-line
   let onmessage = e => {
-    console.log('Message received from main script %s ', e.data)
-    postMessage('sandbox: message from worker')
-    postMessage({
-      code: e.data,
-      result: JSON.stringify(eval(e.data)), // eslint-disable-line
-    })
+    const result = JSON.stringify(eval(e.data)) // eslint-disable-line
+    postMessage(result)
   }
 }
 
-let code = workercode.toString()
-code = code.substring(code.indexOf('{') + 1, code.lastIndexOf('}'))
+let parsedSandbox = sandbox.toString()
+parsedSandbox = parsedSandbox.substring(
+  parsedSandbox.indexOf('{') + 1,
+  parsedSandbox.lastIndexOf('}'),
+)
 
-const blob = new Blob([code], { type: 'application/javascript' })
+const blob = new Blob([parsedSandbox], { type: 'application/javascript' })
 
 export default URL.createObjectURL(blob)

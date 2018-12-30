@@ -12,8 +12,8 @@ export default code => {
 
     worker.postMessage(code)
 
-    // worker.onmessage = function(e) {
-    //   console.log('worker: Message received from sandbox')
-    // }
+    worker.onmessage = function(e) {
+      console.log(e.data)
+    }
   }
 }
