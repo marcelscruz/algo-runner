@@ -1,3 +1,4 @@
 export const themeDark = {
-  greyDark: '#576374',
+  primary: '#303335',
+  secondary: '#aaa',
 }

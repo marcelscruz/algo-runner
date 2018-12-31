@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../../styles/globalStyle'
 import { themeDark } from '../../styles/theme'
-import { AppStyled } from './AppStyled'
+import { AppStyled, Main } from './AppStyled'
 
 /***** Components *****/
 import Editor from '../Editor/Editor'
@@ -15,6 +15,7 @@ import evalCode from '../../web-worker/worker'
 
 const App = () => {
   const [result, setResult] = useState('Code something!')
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
 
   const evaluate = async code => {
     try {
@@ -26,19 +27,24 @@ const App = () => {
     }
   }
 
-  return (
-    <>
-      <GlobalStyle />
+  const toggleSidebar = () => {
+    console.log('toggle sidebar')
+    setIsSidebarOpen(!isSidebarOpen)
+  }
 
-      <ThemeProvider theme={themeDark}>
-        <AppStyled>
+  return (
+    <ThemeProvider theme={themeDark}>
+      <AppStyled>
+        <GlobalStyle />
+        <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+        <Main>
           <h1>Algo Runner</h1>
-          <Sidebar />
+          <button onClick={toggleSidebar}>Toggle sidebar</button>
           <p>{result}</p>
           <Editor evaluate={evaluate} />
-        </AppStyled>
-      </ThemeProvider>
-    </>
+        </Main>
+      </AppStyled>
+    </ThemeProvider>
   )
 }
 
