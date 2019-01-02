@@ -1,5 +1,4 @@
 export const themeDark = {
-  // primary: '#303335',
-  primary: 'lightcoral',
+  primary: '#303335',
   secondary: '#aaa',
 }
