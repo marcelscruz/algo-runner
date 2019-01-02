@@ -1,0 +1,16 @@
+{
+  "basic": [
+    {
+      "id": "1",
+      "name": "Add",
+      "instructions": "Add two numbers and return the result",
+      "solution": "(a, b) => a + b"
+    },
+    {
+      "id": "2",
+      "name": "Subtract",
+      "instructions": "Subtract two numbers and return the result",
+      "solution": "(a, b) => a - b"
+    }
+  ]
+}
