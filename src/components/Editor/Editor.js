@@ -1,5 +1,5 @@
 /***** React *****/
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 /***** Libraries *****/
 import AceEditor from 'react-ace'
@@ -8,11 +8,27 @@ import 'brace/theme/gruvbox'
 import 'brace/ext/language_tools'
 import 'brace/snippets/javascript'
 
-const Editor = props => {
+const Editor = ({ currentExercise, evaluate }) => {
   const [editorValue, setEditorValue] = useState('')
+
+  useEffect(
+    () => {
+      currentExercise.instructions &&
+        setEditorValue(
+          `// ${currentExercise.instructions} \n\n${
+            currentExercise.placeholder
+          }`,
+        )
+    },
+    [currentExercise],
+  )
 
   const onChange = (value, e) => {
     setEditorValue(value)
+  }
+
+  const onSubmit = () => {
+    evaluate(editorValue)
   }
 
   return (
@@ -27,17 +43,9 @@ const Editor = props => {
         onChange={onChange}
         theme="gruvbox"
         value={editorValue}
-        defaultValue={`const foo = 'foo'
-
-        function add() {
-          return a + b
-        }
-
-        console.log(add(2, 2))
-        `}
       />
 
-      <button onClick={() => props.evaluate(editorValue)}>Submit</button>
+      <button onClick={onSubmit}>Submit</button>
     </section>
   )
 }

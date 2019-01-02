@@ -1,7 +1,7 @@
 /***** React *****/
 import React from 'react'
 
-import '@trendmicro/react-sidenav/dist/react-sidenav.css'
+/***** Libraries *****/
 import SideNav, {
   Toggle,
   Nav,
@@ -9,25 +9,21 @@ import SideNav, {
   NavIcon,
   NavText,
 } from '@trendmicro/react-sidenav'
+import '@trendmicro/react-sidenav/dist/react-sidenav.css'
 
-/***** Styles *****/
-// import { SidebarStyled, MetisMenuStyled } from './SidebarStyled'
-
-/***** API *****/
-import get from '../../api/get'
-
-const Sidebar = ({ isSidebarOpen, content }) => {
+const Sidebar = ({ exercises, setCurrentExercise }) => {
   return (
     <SideNav
       onSelect={selected => {
-        // Add your code here
+        setCurrentExercise(exercises[selected - 1])
       }}
+      className="sidenav"
     >
       <Toggle />
-      <Nav defaultSelected="home">
-        {content.map(exercise => {
+      <Nav defaultSelected="home" className="nav">
+        {exercises.map(exercise => {
           return (
-            <NavItem eventKey={exercise.name} key={exercise.id}>
+            <NavItem eventKey={exercise.id} key={exercise.id}>
               <NavIcon>
                 <span>{exercise.id}</span>
               </NavIcon>

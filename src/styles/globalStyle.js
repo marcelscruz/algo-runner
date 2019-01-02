@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import { sidebar } from './sidebar'
 
 export default createGlobalStyle`
-  ${sidebar}
 
   body {
     background: ${props => props.theme.primary};
@@ -31,5 +29,9 @@ export default createGlobalStyle`
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+  }
+
+  .sidenav {
+    position: relative !important;
   }
 `

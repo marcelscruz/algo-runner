@@ -5,13 +5,14 @@ export default code => {
     // Check if browser supports the Worker API
     if (window.Worker) {
       let worker = new Worker(sandbox)
+      const errorMessage = 'Something is wrong. Try again.'
 
       // Kill worker if timeout occurs
       const workerTimeout = setTimeout(() => {
         worker.terminate()
         worker = null
-        rej('Timeout')
-      }, 5000)
+        rej(errorMessage)
+      }, 2000)
 
       // Send code to worker
       worker.postMessage(code)
@@ -27,12 +28,12 @@ export default code => {
         // Handle result
         if (e.data) {
           if (e.data.hasOwnProperty('error')) {
-            rej('Something went wrong')
+            rej(errorMessage)
           } else {
             res(e.data)
           }
         } else {
-          rej('Something went wrong')
+          rej(errorMessage)
         }
       }
     } else {

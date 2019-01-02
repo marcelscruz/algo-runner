@@ -3,11 +3,19 @@ const sandbox = () => {
   let onmessage = e => {
     try {
       const result = JSON.stringify(eval(e.data)) // eslint-disable-line
-      postMessage(result)
+      try {
+        postMessage(result)
+      } catch (error) {
+        console.log('It went wrong!', e)
+      }
     } catch (error) {
-      postMessage({
-        error,
-      })
+      try {
+        postMessage({
+          error,
+        })
+      } catch (error) {
+        console.log('It went wrong!', e)
+      }
     }
   }
 }
