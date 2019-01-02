@@ -22,7 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock-server": "cd db && json-server --watch db.json --port 3004"
+    "mock-server": "cd db && json-server --watch db.json --port 3004",
+    "now-build": "react-scripts build && mv build dist"
   },
   "eslintConfig": {
     "extends": "react-app"
