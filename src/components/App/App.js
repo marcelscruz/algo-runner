@@ -15,7 +15,7 @@ import Sidebar from '../Sidebar/Sidebar'
 import get from '../../api/get'
 
 /***** Utils *****/
-import evalCode from '../../web-worker/worker'
+import evalUtil from '../../utils/evaluate'
 
 const App = () => {
   const [exercises, setContent] = useState([])
@@ -33,22 +33,8 @@ const App = () => {
     fetchExercises()
   }, [])
 
-  const evaluate = async code => {
-    try {
-      const userResult = await evalCode(code)
-      const solution = await evalCode(currentExercise.solution)
-
-      if (userResult === solution) {
-        setResult(`Correct! The solution is '${solution}'.`)
-      } else {
-        setResult(
-          `Nop! Expected result is ${solution} but you got ${userResult}.`,
-        )
-      }
-    } catch (error) {
-      console.log(error)
-      setResult(error)
-    }
+  const evaluate = code => {
+    evalUtil(code, currentExercise.solution, setResult)
   }
 
   return (
