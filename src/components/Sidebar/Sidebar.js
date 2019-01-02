@@ -1,5 +1,6 @@
 /***** React *****/
 import React from 'react'
+import PropTypes from 'prop-types'
 
 /***** Libraries *****/
 import SideNav, {
@@ -37,3 +38,8 @@ const Sidebar = ({ exercises, setCurrentExercise }) => {
 }
 
 export default Sidebar
+
+Sidebar.propTypes = {
+  exercises: PropTypes.array.isRequired,
+  setCurrentExercise: PropTypes.func.isRequired,
+}

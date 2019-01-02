@@ -1,5 +1,6 @@
 /***** React *****/
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 /***** Libraries *****/
 import AceEditor from 'react-ace'
@@ -51,3 +52,8 @@ const Editor = ({ currentExercise, evaluate }) => {
 }
 
 export default Editor
+
+Editor.propTypes = {
+  currentExercise: PropTypes.object.isRequired,
+  evaluate: PropTypes.func.isRequired,
+}
