@@ -1,34 +1,42 @@
 /***** React *****/
-import React, { useState } from 'react'
-// import MetisMenu from 'react-metismenu'
+import React from 'react'
+
+import '@trendmicro/react-sidenav/dist/react-sidenav.css'
+import SideNav, {
+  Toggle,
+  Nav,
+  NavItem,
+  NavIcon,
+  NavText,
+} from '@trendmicro/react-sidenav'
 
 /***** Styles *****/
-import { SidebarStyled, MetisMenuStyled } from './SidebarStyled'
+// import { SidebarStyled, MetisMenuStyled } from './SidebarStyled'
 
-const Sidebar = ({ isSidebarOpen }) => {
-  const content = [
-    {
-      icon: 'icon-class-name',
-      label: 'Label of Item',
-      to: '#a-link',
-    },
-    {
-      icon: 'icon-class-name',
-      label: 'Second Item',
-      content: [
-        {
-          icon: 'icon-class-name',
-          label: 'Sub Menu of Second Item',
-          to: '#another-link',
-        },
-      ],
-    },
-  ]
+/***** API *****/
+import get from '../../api/get'
 
+const Sidebar = ({ isSidebarOpen, content }) => {
   return (
-    <SidebarStyled isSidebarOpen={isSidebarOpen}>
-      <MetisMenuStyled content={content} />
-    </SidebarStyled>
+    <SideNav
+      onSelect={selected => {
+        // Add your code here
+      }}
+    >
+      <Toggle />
+      <Nav defaultSelected="home">
+        {content.map(exercise => {
+          return (
+            <NavItem eventKey={exercise.name} key={exercise.id}>
+              <NavIcon>
+                <span>{exercise.id}</span>
+              </NavIcon>
+              <NavText>{exercise.name}</NavText>
+            </NavItem>
+          )
+        })}
+      </Nav>
+    </SideNav>
   )
 }
 
