@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { sidebar } from './components/sidebar'
 
 export default createGlobalStyle`
 
@@ -31,7 +32,6 @@ export default createGlobalStyle`
     color: white;
   }
 
-  .sidenav {
-    position: relative !important;
-  }
+  /* Components */
+  ${sidebar}
 `

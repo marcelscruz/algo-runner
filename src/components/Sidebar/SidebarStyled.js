@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
-export const SidebarStyled = styled.div`
+export const SidebarStyled = styled.aside`
+  border-right: 1px solid ${props => props.theme.secondary};
   background: ${props => props.theme.primary};
-  display: flex;
-  align-items: center;
   height: 100%;
-  transition: width 0.3s ease-out;
-  width: ${props => (props.isSidebarOpen ? '20rem' : '0')};
 `

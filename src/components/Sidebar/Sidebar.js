@@ -12,28 +12,33 @@ import SideNav, {
 } from '@trendmicro/react-sidenav'
 import '@trendmicro/react-sidenav/dist/react-sidenav.css'
 
+/***** Styles *****/
+import { SidebarStyled } from './SidebarStyled'
+
 const Sidebar = ({ exercises, setCurrentExercise }) => {
   return (
-    <SideNav
-      onSelect={selected => {
-        setCurrentExercise(exercises[selected - 1])
-      }}
-      className="sidenav"
-    >
-      <Toggle />
-      <Nav defaultSelected="home" className="nav">
-        {exercises.map(exercise => {
-          return (
-            <NavItem eventKey={exercise.id} key={exercise.id}>
-              <NavIcon>
-                <span>{exercise.id}</span>
-              </NavIcon>
-              <NavText>{exercise.name}</NavText>
-            </NavItem>
-          )
-        })}
-      </Nav>
-    </SideNav>
+    <SidebarStyled>
+      <SideNav
+        onSelect={selected => {
+          setCurrentExercise(exercises[selected - 1])
+        }}
+        className="sidenav"
+      >
+        <Toggle />
+        <Nav defaultSelected="home" className="nav">
+          {exercises.map(exercise => {
+            return (
+              <NavItem eventKey={exercise.id} key={exercise.id}>
+                <NavIcon>
+                  <span>{exercise.id}</span>
+                </NavIcon>
+                <NavText>{exercise.name}</NavText>
+              </NavItem>
+            )
+          })}
+        </Nav>
+      </SideNav>
+    </SidebarStyled>
   )
 }
 
