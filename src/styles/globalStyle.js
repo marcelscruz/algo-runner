@@ -1,7 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
-import { sidebar } from './components/sidebar'
 
 export default createGlobalStyle`
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
   body {
     background: ${props => props.theme.primary};
@@ -31,7 +36,4 @@ export default createGlobalStyle`
     font-size: calc(10px + 2vmin);
     color: white;
   }
-
-  /* Components */
-  ${sidebar}
 `

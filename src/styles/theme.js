@@ -1,5 +1,5 @@
 export const themeDark = {
-  // primary: '#303335',
-  primary: '#3F444D',
-  secondary: '#aaa',
+  primary: '#1C1F21',
+  secondary: '#242729',
+  borderColor: '#111',
 }
