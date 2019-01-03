@@ -15,7 +15,12 @@ export const sidebar = `
   }
 
   .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- {
-    width: 3rem;
+    width: 64px;
+    transition: width .3s;
+  }
+
+  .sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL > .sidenav---sidenav-navitem---uwIJ- {
+    width: 10rem;
   }
   
   // Exercise title collapsed
