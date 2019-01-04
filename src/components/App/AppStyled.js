@@ -10,7 +10,9 @@ export const AppStyled = styled.div`
 
 export const Main = styled.main`
   background: ${props => props.theme.primary};
+  color: white;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
   width: 100%;
