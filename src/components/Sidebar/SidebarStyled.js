@@ -18,6 +18,22 @@ const sidenav = `
     min-width: 10rem !important;
   }
 
+  // Toggle button
+  .sidenav---sidenav-toggle---1KRjR {
+
+    &:hover {
+      .sidenav---icon-bar---u1f02 {
+        background-color: #ddd !important;
+      }
+    }
+
+    // Span tag
+    .sidenav---icon-bar---u1f02 {
+      background-color: #7B7D7E !important;
+    }
+  }
+
+
   // Exercise
   .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- {
     width: 64px;
@@ -32,6 +48,21 @@ const sidenav = `
   // Exercise selected
   .sidenav---sidenav-navitem---uwIJ-.sidenav---selected---1EK3y.sidenav---highlighted---oUx9u {
     background: #242729;
+  }
+
+  // Exercise number
+  .sidenav---navicon---3gCRo span {
+    color: #7B7D7E !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+  }
+
+  // Exercise name
+  .sidenav---navtext---1AE_f {
+    color: #ddd !important;
+    font-family: 'Roboto', sans-serif;
+    left: -0.5rem;
+    position: relative;
   }
 
   .sidenav---sidenav-nav---3tvij.sidenav---expanded---1KdUL > .sidenav---sidenav-navitem---uwIJ- {

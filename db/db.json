@@ -2,17 +2,36 @@
   "basic": [
     {
       "id": "1",
-      "name": "Add",
-      "instructions": "Add two numbers and return the result",
-      "placeholder": "function add(a, b) {\n\treturn ;\n}\n\nadd(2, 3)",
-      "solution": "function add(a, b) {\n\treturn a + b;\n}\n\nadd(2, 3)"
+      "name": "Reverse String",
+      "directions": "Given a string, return a new string with the reversed order of characters",
+      "examples": [
+        "reverse('apple') === 'leppa'",
+        "reverse('hello') === 'olleh'",
+        "reverse('Greetings!') === '!sgniteerG'"
+      ],
+      "solutions": [
+        "Turn into array, reverse it and turn into string",
+        "Create empty string and insert each character of str to the start of that string",
+        "Turn into array and use reduce"
+      ],
+      "editorPlaceholder": "function reverse(a, b) {\n\n}\n\nreverse(str)",
+      "code": "function reverse(str) {return str.split('').reverse().join('');} reverse('abcd')"
     },
     {
       "id": "2",
+      "name": "Add",
+      "directions": "Return the sum of two numbers",
+      "solutions": ["Add the first argument to the second argument"],
+      "editorPlaceholder": "function add(a, b) {\n\treturn ;\n}\n\nadd(2, 3)",
+      "code": "function add(a, b) {\n\treturn a + b;\n}\n\nadd(2, 3)"
+    },
+    {
+      "id": "3",
       "name": "Subtract",
-      "instructions": "Subtract two numbers and return the result",
-      "placeholder": "function subtract(a, b) {\n\treturn ;\n}\n\nsubtract(3, 2)",
-      "solution": "function subtract(a, b) {\n\treturn a - b;\n}\n\nsubtract(3, 2)"
+      "directions": "Return the subtraction of two numbers",
+      "solutions": ["Subtract the first argument to the second argument"],
+      "editorPlaceholder": "function subtract(a, b) {\n\treturn ;\n}\n\nsubtract(3, 2)",
+      "code": "function subtract(a, b) {\n\treturn a - b;\n}\n\nsubtract(3, 2)"
     }
   ]
 }

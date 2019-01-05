@@ -17,12 +17,8 @@ const Editor = ({ currentExercise, setUserCode }) => {
 
   useEffect(
     () => {
-      currentExercise.instructions &&
-        setEditorValue(
-          `// ${currentExercise.instructions} \n\n${
-            currentExercise.placeholder
-          }`,
-        )
+      currentExercise.editorPlaceholder &&
+        setEditorValue(currentExercise.editorPlaceholder)
     },
     [currentExercise],
   )

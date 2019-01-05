@@ -28,10 +28,12 @@ export const Header = styled.div`
   padding: 0 3rem;
   position: relative;
   width: calc(100% + 2px); /* Compensate left border */
+`
 
-  h1 {
-    font-size: 1.5rem;
-  }
+export const Title = styled.h1`
+  font-size: 1.5rem;
+  font-weight: 100;
+  text-transform: uppercase;
 `
 
 export const Container = styled.div`

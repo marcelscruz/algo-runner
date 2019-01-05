@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../../styles/globalStyle'
 import { themeDark } from '../../styles/theme'
-import { AppStyled, Main, Header, Container, Footer } from './AppStyled'
+import { AppStyled, Main, Header, Title, Container, Footer } from './AppStyled'
 
 /***** Components *****/
 import Editor from '../Editor/Editor'
@@ -50,10 +50,14 @@ const App = () => {
         />
         <Main>
           <Header>
-            <h1>Algo Runner</h1>
+            <Title>Algo Runner</Title>
           </Header>
           <Container>
-            <InfoPanel result={result} evaluate={evaluate} />
+            <InfoPanel
+              currentExercise={currentExercise}
+              evaluate={evaluate}
+              result={result}
+            />
             <Editor
               currentExercise={currentExercise}
               setUserCode={setUserCode}
