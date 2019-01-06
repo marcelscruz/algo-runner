@@ -13,7 +13,10 @@ import Sidebar from '../Sidebar/Sidebar'
 import InfoPanel from '../InfoPanel/InfoPanel'
 
 /***** API *****/
-import get from '../../api/get'
+// import get from '../../api/get'
+
+/***** DB *****/
+import db from '../../db/db.js'
 
 /***** Utils *****/
 import evalUtil from '../../utils/evaluate'
@@ -26,10 +29,14 @@ const App = () => {
 
   useEffect(() => {
     const fetchExercises = async () => {
-      const basic = await get('basic')
+      // Use with json-server
+      // const basic = await get('basic')
+      // setContent(basic)
+      // setCurrentExercise(basic[0])
 
-      setContent(basic)
-      setCurrentExercise(basic[0])
+      // Use with static db
+      setContent(db.basic)
+      setCurrentExercise(db.basic[0])
     }
 
     fetchExercises()

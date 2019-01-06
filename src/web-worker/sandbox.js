@@ -2,7 +2,7 @@ const sandbox = () => {
   // eslint-disable-next-line
   let onmessage = e => {
     try {
-      const result = JSON.stringify(eval(e.data)) // eslint-disable-line
+      const result = eval(e.data) // eslint-disable-line
       try {
         postMessage(result)
       } catch (error) {
