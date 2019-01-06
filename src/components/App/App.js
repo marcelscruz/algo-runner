@@ -22,7 +22,7 @@ const App = () => {
   const [exercises, setContent] = useState([])
   const [currentExercise, setCurrentExercise] = useState({})
   const [userCode, setUserCode] = useState('')
-  const [result, setResult] = useState('Code something!')
+  const [result, setResult] = useState([])
 
   useEffect(() => {
     const fetchExercises = async () => {
@@ -36,7 +36,7 @@ const App = () => {
   }, [])
 
   const evaluate = () => {
-    evalUtil(userCode, currentExercise.solution, setResult)
+    evalUtil(userCode, currentExercise.tests, setResult)
   }
 
   return (

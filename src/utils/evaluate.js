@@ -1,19 +1,21 @@
 import worker from '../web-worker/worker'
 
-export default async (code, solution, setResult) => {
-  try {
-    const userResult = await worker(code)
-    const solutionResult = await worker(solution)
+export default async (userCode, tests, setResult) => {
+  let result = []
 
-    if (userResult === solutionResult) {
-      setResult(`Correct! The solutionResult is '${solutionResult}'.`)
-    } else {
-      setResult(
-        `Nop! Expected result is ${solutionResult} but you got ${userResult}.`,
-      )
-    }
-  } catch (error) {
-    console.log(error)
-    setResult(error)
-  }
+  await Promise.all(
+    tests.map(async test => {
+      try {
+        // Check if user code + function call is iqual to expected result
+        const userResult = await worker(userCode + test.test)
+        const isCorrect = userResult === test.expectedResult
+        result.push(isCorrect)
+      } catch (error) {
+        console.log(error)
+        result.push(undefined)
+      }
+    }),
+  )
+
+  setResult(result)
 }

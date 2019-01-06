@@ -15,13 +15,12 @@ import {
   SolutionsList,
   Solution,
   ButtonsContainer,
-  Submit,
-  Clear,
+  Button,
   ResultPanel,
 } from './InfoPanelStyled'
 
 const InfoPanel = ({ currentExercise, evaluate, result }) => {
-  const { id, name, directions, examples, solutions } = currentExercise
+  const { name, directions, examples, solutions, tests } = currentExercise
 
   return (
     <InfoPanelContainer>
@@ -54,12 +53,32 @@ const InfoPanel = ({ currentExercise, evaluate, result }) => {
 
       <BottomContainer>
         <ButtonsContainer>
-          <Submit onClick={evaluate}>Submit</Submit>
-          <Clear>Clear</Clear>
+          <Button color="#7B7D7E">Clear</Button>
+          <Button onClick={evaluate} color="#5D8634">
+            Submit
+          </Button>
         </ButtonsContainer>
 
         <ResultPanel>
-          <p>{result}</p>
+          <table>
+            <tbody>
+              {tests &&
+                tests.map((test, i) => (
+                  <tr key={i + test.test}>
+                    <td>{test.test}</td>
+                    <td>{test.expectedResult}</td>
+                    <td>
+                      {result[i] === true
+                        ? 'Correct'
+                        : result[i] === false
+                        ? 'Wrong'
+                        : 'Try!'}
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+          {console.log(currentExercise)}
         </ResultPanel>
       </BottomContainer>
     </InfoPanelContainer>
@@ -76,6 +95,6 @@ InfoPanel.propTypes = {
     directions: PropTypes.string,
     solutions: PropTypes.arrayOf(PropTypes.string),
   }),
-  result: PropTypes.string.isRequired,
+  result: PropTypes.arrayOf(PropTypes.bool),
   evaluate: PropTypes.func.isRequired,
 }
