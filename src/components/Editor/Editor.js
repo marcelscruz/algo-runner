@@ -1,5 +1,5 @@
 /***** React *****/
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 /***** Styles *****/
@@ -12,23 +12,9 @@ import 'brace/theme/gruvbox'
 import 'brace/ext/language_tools'
 import 'brace/snippets/javascript'
 
-const Editor = ({ currentExercise, setUserCode }) => {
-  const [editorValue, setEditorValue] = useState('')
-
-  useEffect(
-    () => {
-      currentExercise.editorPlaceholder &&
-        setEditorValue(currentExercise.editorPlaceholder)
-    },
-    [currentExercise],
-  )
-
+const Editor = ({ editorValue, setEditorValue }) => {
   const onChange = value => {
-    // Local editor state
     setEditorValue(value)
-
-    // Parent level editor state
-    setUserCode(value)
   }
 
   return (
@@ -54,6 +40,6 @@ const Editor = ({ currentExercise, setUserCode }) => {
 export default Editor
 
 Editor.propTypes = {
-  currentExercise: PropTypes.object.isRequired,
-  setUserCode: PropTypes.func.isRequired,
+  editorValue: PropTypes.string.isRequired,
+  setEditorValue: PropTypes.func.isRequired,
 }

@@ -1,5 +1,5 @@
 /***** React *****/
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 /***** Styles *****/
@@ -18,17 +18,34 @@ import {
   Button,
   ResultPanel,
   Result,
-  FunctionCall,
-  ExpectedResult,
   ResultIcon,
+  FunctionCall,
   ComparisonIcon,
+  ExpectedResult,
 } from './InfoPanelStyled'
 
 /***** Libraries *****/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const InfoPanel = ({ currentExercise, evaluate, result }) => {
+const InfoPanel = ({
+  currentExercise,
+  evaluate,
+  clearEditorValue,
+  result,
+  setResult,
+}) => {
   const { name, directions, examples, solutions, tests } = currentExercise
+
+  useEffect(
+    () => {
+      setResult([])
+    },
+    [currentExercise],
+  )
+
+  const handleClearEditorValue = () => {
+    clearEditorValue()
+  }
 
   return (
     <InfoPanelContainer>
@@ -61,19 +78,19 @@ const InfoPanel = ({ currentExercise, evaluate, result }) => {
 
       <BottomContainer>
         <ButtonsContainer>
-          <Button color="#7B7D7E">Clear</Button>
+          <Button onClick={handleClearEditorValue} color="#7B7D7E">
+            Clear
+          </Button>
           <Button onClick={evaluate} color="#5D8634">
             Submit
           </Button>
         </ButtonsContainer>
 
         <ResultPanel>
+          <SectionTitle>Results</SectionTitle>
           {tests &&
             tests.map((test, i) => (
               <Result key={test.test + i}>
-                <FunctionCall>{test.test}</FunctionCall>
-                <ComparisonIcon>===</ComparisonIcon>
-                <ExpectedResult>{test.expectedResult}</ExpectedResult>
                 <ResultIcon>
                   {result[i] === true ? (
                     <FontAwesomeIcon icon="check" color="#5D8634" />
@@ -83,6 +100,9 @@ const InfoPanel = ({ currentExercise, evaluate, result }) => {
                     <FontAwesomeIcon icon="question" color="#7B7D7E" />
                   )}
                 </ResultIcon>
+                <FunctionCall>{test.test}</FunctionCall>
+                <ComparisonIcon>===</ComparisonIcon>
+                <ExpectedResult>{test.expectedResult}</ExpectedResult>
               </Result>
             ))}
         </ResultPanel>
@@ -102,6 +122,8 @@ InfoPanel.propTypes = {
     solutions: PropTypes.arrayOf(PropTypes.string),
     tests: PropTypes.arrayOf(PropTypes.object),
   }),
-  result: PropTypes.arrayOf(PropTypes.bool),
   evaluate: PropTypes.func.isRequired,
+  clearEditorValue: PropTypes.func.isRequired,
+  result: PropTypes.arrayOf(PropTypes.bool),
+  setResult: PropTypes.func.isRequired,
 }

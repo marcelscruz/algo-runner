@@ -1,20 +1,16 @@
 import styled from 'styled-components'
-// import { lighten } from 'polished'
 
 export const InfoPanelContainer = styled.div`
   align-items: center;
   background: ${props => props.theme.secondary};
-  /* background: red; */
   display: flex;
   flex: 1;
   flex-direction: column;
   height: 100%;
   justify-content: flex-end;
-  /* padding: 3rem 0rem; */
 `
 
 export const TopContainer = styled.div`
-  /* background: blue; */
   display: flex;
   flex-direction: column;
   height: 60%;
@@ -25,7 +21,6 @@ export const TopContainer = styled.div`
 
 export const BottomContainer = styled.div`
   align-items: center;
-  /* background: green; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -63,20 +58,19 @@ export const ExamplesList = styled.ul`
 `
 
 export const Example = styled.li`
+  margin: 0.1rem 0;
   font-size: 1rem;
 `
 
-export const SolutionsList = styled.ol`
-  /* font-size: 0.9rem; */
-`
+export const SolutionsList = styled.ol``
 
 export const Solution = styled.li`
+  margin: 0.1rem 0;
   font-size: 1rem;
 `
 
 export const ButtonsContainer = styled.div`
   align-items: center;
-  /* background: yellow; */
   display: flex;
   justify-content: center;
   height: 20%;
@@ -85,10 +79,9 @@ export const ButtonsContainer = styled.div`
 
 export const Button = styled.button`
   background: ${props => props.color};
-  /* border: 1px solid ${props => props.theme.textColor}; */
   border: none;
   border-radius: 50px;
-  box-shadow: 0 5px 5px rgba(0,0,0,.1);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   color: ${props => props.theme.textColor};
   cursor: pointer;
   font-family: 'Raleway', sans-serif;
@@ -96,12 +89,11 @@ export const Button = styled.button`
   font-weight: 600;
   height: 2.5rem;
   margin: 0 1rem;
-  /* text-transform: uppercase; */
-  transition: all .3s;
+  transition: all 0.3s;
   width: 8rem;
 
   &:hover {
-    box-shadow: 0 10px 5px rgba(0,0,0,.1);
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
     transform: translate(0, -0.15rem);
   }
 
@@ -110,14 +102,11 @@ export const Button = styled.button`
   }
 
   &:active {
-    transform: translate(0, 0.10rem);
+    transform: translate(0, 0.1rem);
   }
 `
 
 export const ResultPanel = styled.div`
-  /* align-self: flex-end; */
-  align-items: center;
-  /* background: grey; */
   display: flex;
   flex-direction: column;
   font-size: 1rem;
@@ -129,41 +118,24 @@ export const ResultPanel = styled.div`
 `
 
 export const Result = styled.div`
-  /* background: blue; */
-  display: flex;
-  justify-content: space-between;
-  margin: 0.2rem 0;
+  margin: 0.1rem 0;
   width: 100%;
 `
 
-export const FunctionCall = styled.span`
-  /* background: red; */
-  display: inline-block;
-  min-width: 33%;
-  /* padding-right: 1rem; */
-  text-align: right;
-`
-
-export const ExpectedResult = styled.span`
-  /* background: red; */
-  display: inline-block;
-  min-width: 1rem;
-  padding: 0;
-  text-align: center;
-`
-
 export const ResultIcon = styled.span`
-  /* background: red; */
   display: inline-block;
-  min-width: 33%;
-  /* padding-left: 1rem; */
-  text-align: left;
+  margin-right: 0.5rem;
+
+  .fa-question {
+    width: 0.6rem !important;
+  }
 `
+
+export const FunctionCall = styled.span``
 
 export const ComparisonIcon = styled.span`
-  /* background: red; */
   color: ${props => props.theme.titleColor};
-  display: inline-block;
-  min-width: 2rem;
-  text-align: center;
+  margin: 0 0.5rem;
 `
+
+export const ExpectedResult = styled.span``
