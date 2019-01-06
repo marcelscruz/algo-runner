@@ -15,6 +15,9 @@ import {
   Footer,
 } from './AppStyled'
 
+/***** Libraries *****/
+import Hotkeys from 'react-hot-keys'
+
 /***** Components *****/
 import Editor from '../Editor/Editor'
 import Sidebar from '../Sidebar/Sidebar'
@@ -85,6 +88,10 @@ const App = () => {
     evalUtil(editorValue, currentExercise.tests, setResult)
   }
 
+  const handleSubmitShortcut = () => {
+    evaluate()
+  }
+
   return (
     <ThemeProvider theme={themeDark}>
       <AppStyled>
@@ -107,11 +114,16 @@ const App = () => {
                 result={result}
                 setResult={setResult}
               />
-              <Editor
-                setEditorInstance={setEditorInstance}
-                editorValue={editorValue}
-                setEditorValue={handleEditorValueChange}
-              />
+              <Hotkeys
+                keyName="cmd+enter,ctrl+enter"
+                onKeyUp={handleSubmitShortcut}
+              >
+                <Editor
+                  setEditorInstance={setEditorInstance}
+                  editorValue={editorValue}
+                  setEditorValue={handleEditorValueChange}
+                />
+              </Hotkeys>
             </Container>
           ) : (
             <Container>
