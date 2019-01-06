@@ -17,7 +17,15 @@ import {
   ButtonsContainer,
   Button,
   ResultPanel,
+  Result,
+  FunctionCall,
+  ExpectedResult,
+  ResultIcon,
+  ComparisonIcon,
 } from './InfoPanelStyled'
+
+/***** Libraries *****/
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const InfoPanel = ({ currentExercise, evaluate, result }) => {
   const { name, directions, examples, solutions, tests } = currentExercise
@@ -60,25 +68,23 @@ const InfoPanel = ({ currentExercise, evaluate, result }) => {
         </ButtonsContainer>
 
         <ResultPanel>
-          <table>
-            <tbody>
-              {tests &&
-                tests.map((test, i) => (
-                  <tr key={i + test.test}>
-                    <td>{test.test}</td>
-                    <td>{test.expectedResult}</td>
-                    <td>
-                      {result[i] === true
-                        ? 'Correct'
-                        : result[i] === false
-                        ? 'Wrong'
-                        : 'Try!'}
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-          {console.log(currentExercise)}
+          {tests &&
+            tests.map((test, i) => (
+              <Result key={test.test + i}>
+                <FunctionCall>{test.test}</FunctionCall>
+                <ComparisonIcon>===</ComparisonIcon>
+                <ExpectedResult>{test.expectedResult}</ExpectedResult>
+                <ResultIcon>
+                  {result[i] === true ? (
+                    <FontAwesomeIcon icon="check" color="#5D8634" />
+                  ) : result[i] === false ? (
+                    <FontAwesomeIcon icon="times" color="#95474B" />
+                  ) : (
+                    <FontAwesomeIcon icon="question" color="#7B7D7E" />
+                  )}
+                </ResultIcon>
+              </Result>
+            ))}
         </ResultPanel>
       </BottomContainer>
     </InfoPanelContainer>
@@ -94,6 +100,7 @@ InfoPanel.propTypes = {
     examples: PropTypes.arrayOf(PropTypes.string),
     directions: PropTypes.string,
     solutions: PropTypes.arrayOf(PropTypes.string),
+    tests: PropTypes.arrayOf(PropTypes.object),
   }),
   result: PropTypes.arrayOf(PropTypes.bool),
   evaluate: PropTypes.func.isRequired,

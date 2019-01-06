@@ -25,7 +25,7 @@ const Sidebar = ({ exercises, setCurrentExercise }) => {
         className="sidenav"
       >
         <Toggle />
-        <Nav defaultSelected="home" className="nav">
+        <Nav defaultSelected="1" className="nav">
           {exercises.map(exercise => {
             return (
               <NavItem eventKey={exercise.id} key={exercise.id}>

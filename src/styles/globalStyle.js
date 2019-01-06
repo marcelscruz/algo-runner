@@ -1,7 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faQuestion, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faQuestion, faCheck, faTimes)
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto:100,400');
+  @import url('https://fonts.googleapis.com/css?family=Raleway:600,700,800|Roboto:100,400');
 
   * {
     box-sizing: border-box;

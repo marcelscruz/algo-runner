@@ -12,7 +12,7 @@ export default async (userCode, tests, setResult) => {
         result.push(isCorrect)
       } catch (error) {
         console.log(error)
-        result.push(undefined)
+        result.push(false)
       }
     }),
   )
