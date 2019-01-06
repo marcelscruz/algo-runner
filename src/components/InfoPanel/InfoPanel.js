@@ -94,10 +94,10 @@ const InfoPanel = ({
                 <ResultIcon>
                   {result[i] === true ? (
                     <FontAwesomeIcon icon="check" color="#5D8634" />
-                  ) : result[i] === false ? (
-                    <FontAwesomeIcon icon="times" color="#95474B" />
                   ) : (
-                    <FontAwesomeIcon icon="question" color="#7B7D7E" />
+                    result[i] === false && (
+                      <FontAwesomeIcon icon="times" color="#95474B" />
+                    )
                   )}
                 </ResultIcon>
                 <FunctionCall>{test.test}</FunctionCall>

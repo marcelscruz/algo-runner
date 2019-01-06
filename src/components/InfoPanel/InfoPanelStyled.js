@@ -113,18 +113,20 @@ export const ResultPanel = styled.div`
   height: 80%;
   justify-content: center;
   padding: 1rem 0;
-  overflow-y: scroll;
   width: 100%;
 `
 
 export const Result = styled.div`
+  left: -1.3rem; /* ResultIcon width and margin */
   margin: 0.1rem 0;
+  position: relative;
   width: 100%;
 `
 
 export const ResultIcon = styled.span`
   display: inline-block;
-  margin-right: 0.5rem;
+  margin-right: 0.3rem;
+  min-width: 1rem;
 
   .fa-question {
     width: 0.6rem !important;
