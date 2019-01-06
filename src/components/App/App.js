@@ -5,7 +5,15 @@ import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../../styles/globalStyle'
 import { themeDark } from '../../styles/theme'
-import { AppStyled, Main, Header, Title, Container, Footer } from './AppStyled'
+import {
+  AppStyled,
+  Main,
+  Header,
+  Title,
+  Container,
+  Loading,
+  Footer,
+} from './AppStyled'
 
 /***** Components *****/
 import Editor from '../Editor/Editor'
@@ -26,6 +34,7 @@ const App = () => {
   const [currentExercise, setCurrentExercise] = useState({})
   const [result, setResult] = useState([])
   const [editorValue, setEditorValue] = useState('')
+  const [editorInstance, setEditorInstance] = useState()
 
   useEffect(() => {
     // Fetch exercises in initial render
@@ -43,11 +52,17 @@ const App = () => {
     fetchExercises()
   }, [])
 
-  // Reset editor value when exercise is changed
+  // Reset editor value when exercise is changed,
+  // position cursor and focus on editor
   useEffect(
     () => {
       currentExercise.editorPlaceholder &&
         setEditorValue(currentExercise.editorPlaceholder)
+
+      if (editorInstance) {
+        editorInstance.gotoLine(2, 4, true)
+        editorInstance.focus()
+      }
     },
     [currentExercise],
   )
@@ -57,9 +72,12 @@ const App = () => {
     setEditorValue(value)
   }
 
-  // Reset editor value to exercise placeholder
+  // Reset editor value to exercise placeholder,
+  // position cursor and focus on editor
   const clearEditorValue = () => {
     setEditorValue(currentExercise.editorPlaceholder)
+    editorInstance.gotoLine(2, 4, true)
+    editorInstance.focus()
   }
 
   // Evaluate code
@@ -80,19 +98,26 @@ const App = () => {
           <Header>
             <Title>Algo Runner</Title>
           </Header>
-          <Container>
-            <InfoPanel
-              currentExercise={currentExercise}
-              evaluate={evaluate}
-              clearEditorValue={clearEditorValue}
-              result={result}
-              setResult={setResult}
-            />
-            <Editor
-              editorValue={editorValue}
-              setEditorValue={handleEditorValueChange}
-            />
-          </Container>
+          {editorValue ? (
+            <Container>
+              <InfoPanel
+                currentExercise={currentExercise}
+                evaluate={evaluate}
+                clearEditorValue={clearEditorValue}
+                result={result}
+                setResult={setResult}
+              />
+              <Editor
+                setEditorInstance={setEditorInstance}
+                editorValue={editorValue}
+                setEditorValue={handleEditorValueChange}
+              />
+            </Container>
+          ) : (
+            <Container>
+              <Loading>Loading...</Loading>
+            </Container>
+          )}
           <Footer />
         </Main>
       </AppStyled>

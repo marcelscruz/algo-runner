@@ -15,7 +15,7 @@ export default {
         'Create empty string and insert each character of str to the start of that string',
         'Turn into array and use reduce',
       ],
-      editorPlaceholder: 'function reverse(str) {\n\n}',
+      editorPlaceholder: 'function reverse(str) {\n\t\n}',
       code:
         "function reverse(str) { return str.split('').reverse().join(''); } reverse('abcd')",
       tests: [
@@ -39,7 +39,7 @@ export default {
       directions: 'Return the sum of two numbers',
       examples: ['add(2, 3) === 5', 'add(3, 6) === 9', 'add(11, 2) === 13'],
       solutions: ['Add the first argument to the second argument'],
-      editorPlaceholder: 'function add(a, b) {\n\n}',
+      editorPlaceholder: 'function add(a, b) {\n\t\n}',
       code: 'function add(a, b) { return a + b; } add(2, 3)',
       tests: [
         {
@@ -66,7 +66,7 @@ export default {
         'subtract(11, 2) === 9',
       ],
       solutions: ['Subtract the first argument to the second argument'],
-      editorPlaceholder: 'function subtract(a, b) {\n\n}',
+      editorPlaceholder: 'function subtract(a, b) {\n\t\n}',
       code: 'function subtract(a, b) { return a - b; } subtract(3, 2)',
       tests: [
         {

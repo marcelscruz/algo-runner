@@ -45,6 +45,14 @@ export const Container = styled.div`
   display: flex;
   width: 100%;
 `
+
+export const Loading = styled.h3`
+  font-size: 2rem;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
+
 export const Footer = styled.div`
   background: ${props => props.theme.primary};
   height: 1.5rem;

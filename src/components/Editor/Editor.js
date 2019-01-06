@@ -12,7 +12,7 @@ import 'brace/theme/gruvbox'
 import 'brace/ext/language_tools'
 import 'brace/snippets/javascript'
 
-const Editor = ({ editorValue, setEditorValue }) => {
+const Editor = ({ setEditorInstance, editorValue, setEditorValue }) => {
   const onChange = value => {
     setEditorValue(value)
   }
@@ -24,11 +24,15 @@ const Editor = ({ editorValue, setEditorValue }) => {
         editorProps={{ $blockScrolling: Infinity }}
         enableLiveAutocompletion={true}
         enableSnippets={true}
-        height="100%"
         focus={true}
+        height="100%"
         mode="javascript"
         name="editor"
         onChange={onChange}
+        onLoad={editor => {
+          setEditorInstance(editor)
+          editor.gotoLine(2, 4, true)
+        }}
         theme="gruvbox"
         value={editorValue}
         width="100%"
