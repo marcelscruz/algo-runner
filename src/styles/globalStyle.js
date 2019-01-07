@@ -1,8 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faQuestion, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
+import {
+  faQuestion,
+  faCheck,
+  faTimes,
+  faInfoCircle,
+} from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
-library.add(faQuestion, faCheck, faTimes)
+library.add(faQuestion, faCheck, faTimes, faInfoCircle, faGithub, faTwitter)
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Raleway:600,700,800|Roboto:100,400');

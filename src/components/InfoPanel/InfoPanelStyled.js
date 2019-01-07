@@ -30,7 +30,6 @@ export const BottomContainer = styled.div`
 `
 
 export const ExerciseTitle = styled.h2`
-  color: ${props => props.theme.titleColor};
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
