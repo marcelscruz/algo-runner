@@ -1,4 +1,10 @@
+/***** Libraries *****/
 import { createGlobalStyle } from 'styled-components'
+
+/***** Styles *****/
+import tooltip from './assets/tooltip'
+
+/***** Font Awesome *****/
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faQuestion,
@@ -38,4 +44,7 @@ export default createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
+
+  ${tooltip}
+  
 `
