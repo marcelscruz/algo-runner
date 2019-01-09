@@ -5,27 +5,17 @@ import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../../styles/globalStyle'
 import { themeDark } from '../../styles/theme'
-import {
-  AppStyled,
-  Main,
-  Header,
-  Title,
-  TitleSub,
-  Container,
-  Loading,
-  Footer,
-  SocialMediaLink,
-} from './AppStyled'
+import { AppStyled, Main, Container, Loading } from './AppStyled'
 
 /***** Libraries *****/
 import Hotkeys from 'react-hot-keys'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ReactTooltip from 'react-tooltip'
 
 /***** Components *****/
+import Header from '../Header/Header'
 import Editor from '../Editor/Editor'
 import Sidebar from '../Sidebar/Sidebar'
 import InfoPanel from '../InfoPanel/InfoPanel'
+import Footer from '../Footer/Footer'
 
 /***** API *****/
 // import get from '../../api/get'
@@ -106,11 +96,7 @@ const App = () => {
           setCurrentExercise={setCurrentExercise}
         />
         <Main>
-          <Header>
-            <Title>
-              A<TitleSub>lgo</TitleSub> R<TitleSub>unner</TitleSub>
-            </Title>
-          </Header>
+          <Header />
           {editorValue ? (
             <Container>
               <InfoPanel
@@ -136,34 +122,7 @@ const App = () => {
               <Loading>Loading...</Loading>
             </Container>
           )}
-          <Footer>
-            <FontAwesomeIcon
-              data-tip="custom show"
-              data-event="click"
-              // data-offset="{'top': 50, 'left': 0}"
-              icon="info-circle"
-            />
-            <ReactTooltip globalEventOff="click">
-              <p>Made by Marcel Cruz</p>
-              <p>Shortcuts: cmd + enter = submit</p>
-            </ReactTooltip>
-
-            <SocialMediaLink
-              href="https://github.com/marcelscruz/algo-runner"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon={['fab', 'github']} />
-            </SocialMediaLink>
-
-            <SocialMediaLink
-              href="https://twitter.com/marcelcruz"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon={['fab', 'twitter']} />
-            </SocialMediaLink>
-          </Footer>
+          <Footer />
         </Main>
       </AppStyled>
     </ThemeProvider>
