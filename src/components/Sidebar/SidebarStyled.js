@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import fonts from '../../styles/fonts'
+
 const sidenav = `
   .sidenav {
     height: 100%;
@@ -53,14 +55,14 @@ const sidenav = `
   // Exercise number
   .sidenav---navicon---3gCRo span {
     color: #7B7D7E !important;
-    font-family: 'Roboto', sans-serif;
+    font-family: ${fonts.secondary}, sans-serif;
     font-size: 1.2rem;
   }
 
   // Exercise name
   .sidenav---navtext---1AE_f {
     color: #ddd !important;
-    font-family: 'Roboto', sans-serif;
+    font-family: ${fonts.secondary}, sans-serif;
     left: -0.5rem;
     position: relative;
   }

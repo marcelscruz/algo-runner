@@ -4,6 +4,9 @@ import { createGlobalStyle } from 'styled-components'
 /***** Styles *****/
 import tooltip from './assets/tooltip'
 
+/***** Fonts *****/
+import fonts from './fonts'
+
 /***** Font Awesome *****/
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -17,7 +20,7 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 library.add(faQuestion, faCheck, faTimes, faInfoCircle, faGithub, faTwitter)
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Raleway:600,700,800|Roboto:100,400');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:100,400|Open+Sans|Raleway:600,700,800|');
 
   * {
     box-sizing: border-box;
@@ -31,18 +34,10 @@ export default createGlobalStyle`
     color: ${props => props.theme.textColor};
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
     font-size: 62.5%;
-    font-family: 'Raleway', sans-serif;
+    font-family: ${fonts.primary}, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
   }
 
   ${tooltip}

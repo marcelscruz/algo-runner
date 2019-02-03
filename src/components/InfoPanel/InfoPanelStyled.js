@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import fonts from '../../styles/fonts'
 
 export const InfoPanelContainer = styled.div`
   align-items: center;
@@ -30,7 +31,7 @@ export const BottomContainer = styled.div`
 `
 
 export const ExerciseTitle = styled.h2`
-  font-family: 'Roboto', sans-serif;
+  font-family: ${fonts.secondary}, sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -44,7 +45,7 @@ export const Directions = styled.h4`
 
 export const SectionTitle = styled.h3`
   color: ${props => props.theme.titleColor};
-  font-family: 'Roboto', sans-serif;
+  font-family: ${fonts.secondary}, sans-serif;
   font-size: 0.7rem;
   margin-bottom: 0.2rem;
   margin-top: 0.5rem;
@@ -83,7 +84,10 @@ export const Button = styled.button`
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   color: ${props => props.theme.textColor};
   cursor: pointer;
-  font-family: 'Raleway', sans-serif;
+  /* 
+  TODO: try terciary font here
+   */
+  font-family: ${fonts.secondary}, sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   height: 2.5rem;

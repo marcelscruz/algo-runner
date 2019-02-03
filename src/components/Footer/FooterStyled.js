@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import fonts from '../../styles/fonts'
 
 export const FooterStyled = styled.div`
   align-items: center;
@@ -49,7 +50,7 @@ export const ShortcutsContainer = styled.div``
 
 export const ShortcutsTitle = styled.h6`
   color: ${props => props.theme.titleColor};
-  font-family: 'Roboto', sans-serif;
+  font-family: ${fonts.secondary}, sans-serif;
   font-size: 0.6rem;
   margin-bottom: 0.2rem;
   margin-top: -2rem;
