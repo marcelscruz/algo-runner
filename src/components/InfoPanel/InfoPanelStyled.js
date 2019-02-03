@@ -93,7 +93,7 @@ export const Button = styled.button`
 
   &:hover {
     box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
-    transform: translate(0, -0.15rem);
+    transform: translate(0, -0.1rem) scale(1.05);
   }
 
   &:focus {
@@ -101,7 +101,8 @@ export const Button = styled.button`
   }
 
   &:active {
-    transform: translate(0, 0.1rem);
+    box-shadow: 0 7px 5px rgba(0, 0, 0, 0.1);
+    transform: translate(0, -0.03rem) scale(1.03);
   }
 `
 
