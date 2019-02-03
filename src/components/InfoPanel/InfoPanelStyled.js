@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export const InfoPanelContainer = styled.div`
   align-items: center;
@@ -106,6 +106,7 @@ export const Button = styled.button`
 `
 
 export const ResultPanel = styled.div`
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   font-size: 1rem;
@@ -115,11 +116,22 @@ export const ResultPanel = styled.div`
   width: 100%;
 `
 
+const resultBackgroundFadeInOut = color => keyframes`
+  from {
+    background: ${color};
+  }
+
+  to {
+    background: transparent;
+  }
+`
+
 export const Result = styled.div`
+  animation: ${({ background }) => resultBackgroundFadeInOut(background)} 2s;
   left: -1.3rem; /* ResultIcon width and margin */
   margin: 0.1rem 0;
+  padding: 0 0.5rem;
   position: relative;
-  width: 100%;
 `
 
 export const ResultIcon = styled.span`

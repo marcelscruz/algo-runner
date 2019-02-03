@@ -51,18 +51,15 @@ const App = () => {
 
   // Reset editor value when exercise is changed,
   // position cursor and focus on editor
-  useEffect(
-    () => {
-      currentExercise.editorPlaceholder &&
-        setEditorValue(currentExercise.editorPlaceholder)
+  useEffect(() => {
+    currentExercise.editorPlaceholder &&
+      setEditorValue(currentExercise.editorPlaceholder)
 
-      if (editorInstance) {
-        editorInstance.gotoLine(2, 4, true)
-        editorInstance.focus()
-      }
-    },
-    [currentExercise],
-  )
+    if (editorInstance) {
+      editorInstance.gotoLine(2, 4, true)
+      editorInstance.focus()
+    }
+  }, [currentExercise])
 
   // Handle editor input change
   const handleEditorValueChange = value => {
@@ -94,6 +91,7 @@ const App = () => {
         <Sidebar
           exercises={exercises}
           setCurrentExercise={setCurrentExercise}
+          setResult={setResult}
         />
         <Main>
           <Header />

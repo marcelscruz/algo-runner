@@ -36,12 +36,9 @@ const InfoPanel = ({
 }) => {
   const { name, directions, examples, solutions, tests } = currentExercise
 
-  useEffect(
-    () => {
-      setResult([])
-    },
-    [currentExercise],
-  )
+  useEffect(() => {
+    setResult([])
+  }, [currentExercise])
 
   const handleClearEditorValue = () => {
     clearEditorValue()
@@ -90,7 +87,16 @@ const InfoPanel = ({
           <SectionTitle>Results</SectionTitle>
           {tests &&
             tests.map((test, i) => (
-              <Result key={test.test + i}>
+              <Result
+                key={test.test + i}
+                background={
+                  result[i] === true
+                    ? '#5D8634'
+                    : result[i] === false
+                    ? '#95474B'
+                    : 'transparent'
+                }
+              >
                 <ResultIcon>
                   {result[i] === true ? (
                     <FontAwesomeIcon icon="check" color="#5D8634" />
