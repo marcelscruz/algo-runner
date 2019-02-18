@@ -29,7 +29,7 @@ import evalUtil from '../../utils/evaluate'
 const App = () => {
   const [exercisesList, setExercisesList] = useState([])
   const [currentExercise, setCurrentExercise] = useState({})
-  const [result, setResult] = useState([])
+  const [results, setResults] = useState([])
   const [editorValue, setEditorValue] = useState('')
   const [editorInstance, setEditorInstance] = useState()
 
@@ -76,7 +76,7 @@ const App = () => {
 
   // Evaluate code
   const evaluate = () => {
-    evalUtil(editorValue, currentExercise.tests, setResult)
+    evalUtil(editorValue, currentExercise.tests, setResults)
   }
 
   const handleSubmitShortcut = () => {
@@ -91,7 +91,7 @@ const App = () => {
         <Sidebar
           exercisesList={exercisesList}
           setCurrentExercise={setCurrentExercise}
-          setResult={setResult}
+          setResults={setResults}
         />
         <Main>
           <Header />
@@ -105,8 +105,8 @@ const App = () => {
                   currentExercise={currentExercise}
                   evaluate={evaluate}
                   clearEditorValue={clearEditorValue}
-                  result={result}
-                  setResult={setResult}
+                  results={results}
+                  setResults={setResults}
                 />
                 <Editor
                   setEditorInstance={setEditorInstance}

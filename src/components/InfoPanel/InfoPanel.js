@@ -31,13 +31,13 @@ const InfoPanel = ({
   currentExercise,
   evaluate,
   clearEditorValue,
-  result,
-  setResult,
+  results,
+  setResults,
 }) => {
   const { name, directions, examples, solutions, tests } = currentExercise
 
   useEffect(() => {
-    setResult([])
+    setResults([])
   }, [currentExercise])
 
   const handleClearEditorValue = () => {
@@ -90,18 +90,18 @@ const InfoPanel = ({
               <Result
                 key={test.test + i}
                 background={
-                  result[i] === true
+                  results[i] === true
                     ? '#5D8634'
-                    : result[i] === false
+                    : results[i] === false
                     ? '#95474B'
                     : 'transparent'
                 }
               >
                 <ResultIcon>
-                  {result[i] === true ? (
+                  {results[i] === true ? (
                     <FontAwesomeIcon icon="check" color="#5D8634" />
                   ) : (
-                    result[i] === false && (
+                    results[i] === false && (
                       <FontAwesomeIcon icon="times" color="#95474B" />
                     )
                   )}
@@ -130,6 +130,6 @@ InfoPanel.propTypes = {
   }),
   evaluate: PropTypes.func.isRequired,
   clearEditorValue: PropTypes.func.isRequired,
-  result: PropTypes.arrayOf(PropTypes.bool),
-  setResult: PropTypes.func.isRequired,
+  results: PropTypes.arrayOf(PropTypes.bool),
+  setResults: PropTypes.func.isRequired,
 }
