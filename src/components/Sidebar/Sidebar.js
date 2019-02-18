@@ -15,12 +15,12 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css'
 /***** Styles *****/
 import { SidebarStyled } from './SidebarStyled'
 
-const Sidebar = ({ exercisesList, setCurrentExercise, setResult }) => {
+const Sidebar = ({ exercisesList, setCurrentExercise, setResults }) => {
   return (
     <SidebarStyled>
       <SideNav
         onSelect={selected => {
-          setResult([]) // Fix glitch on result background
+          setResults([]) // Fix glitch on result background
           setCurrentExercise(exercisesList[selected - 1])
         }}
         className="sidenav"
@@ -48,4 +48,5 @@ export default Sidebar
 Sidebar.propTypes = {
   exercisesList: PropTypes.array.isRequired,
   setCurrentExercise: PropTypes.func.isRequired,
+  setResults: PropTypes.func.isRequired,
 }

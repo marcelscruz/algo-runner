@@ -1,5 +1,5 @@
 /***** React *****/
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 /***** Styles *****/
@@ -29,16 +29,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const InfoPanel = ({
   currentExercise,
-  evaluate,
   clearEditorValue,
+  evaluate,
   results,
-  setResults,
 }) => {
   const { name, directions, examples, solutions, tests } = currentExercise
-
-  useEffect(() => {
-    setResults([])
-  }, [currentExercise])
 
   const handleClearEditorValue = () => {
     clearEditorValue()
@@ -131,5 +126,4 @@ InfoPanel.propTypes = {
   evaluate: PropTypes.func.isRequired,
   clearEditorValue: PropTypes.func.isRequired,
   results: PropTypes.arrayOf(PropTypes.bool),
-  setResults: PropTypes.func.isRequired,
 }

@@ -36,12 +36,6 @@ const App = () => {
   useEffect(() => {
     // Fetch exercises in initial render
     const fetchExercises = async () => {
-      // Use with json-server
-      // const basic = await get('basic')
-      // setExercisesList(basic)
-      // setCurrentExercise(basic[0])
-
-      // Use with static db
       setExercisesList(db.basic)
       setCurrentExercise(db.basic[0])
     }
@@ -61,17 +55,17 @@ const App = () => {
     }
   }, [currentExercise])
 
-  // Handle editor input change
-  const handleEditorValueChange = value => {
-    setEditorValue(value)
-  }
-
   // Reset editor value to exercise placeholder,
   // position cursor and focus on editor
   const clearEditorValue = () => {
     setEditorValue(currentExercise.editorPlaceholder)
     editorInstance.gotoLine(2, 4, true)
     editorInstance.focus()
+  }
+
+  // Handle editor input change
+  const handleEditorValueChange = value => {
+    setEditorValue(value)
   }
 
   // Evaluate code
@@ -103,10 +97,9 @@ const App = () => {
               >
                 <InfoPanel
                   currentExercise={currentExercise}
-                  evaluate={evaluate}
                   clearEditorValue={clearEditorValue}
+                  evaluate={evaluate}
                   results={results}
-                  setResults={setResults}
                 />
                 <Editor
                   setEditorInstance={setEditorInstance}

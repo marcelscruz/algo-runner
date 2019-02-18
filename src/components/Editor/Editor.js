@@ -44,6 +44,7 @@ const Editor = ({ setEditorInstance, editorValue, setEditorValue }) => {
 export default Editor
 
 Editor.propTypes = {
+  setEditorInstance: PropTypes.func.isRequired,
   editorValue: PropTypes.string.isRequired,
   setEditorValue: PropTypes.func.isRequired,
 }
