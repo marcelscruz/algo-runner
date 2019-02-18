@@ -133,7 +133,7 @@ const resultBackgroundFadeInOut = color => keyframes`
 
 export const Result = styled.div`
   animation: ${({ background }) => resultBackgroundFadeInOut(background)} 2s;
-  left: -1.3rem; /* ResultIcon width and margin */
+  left: -1.8rem;
   margin: 0.1rem 0;
   padding: 0 0.5rem;
   position: relative;
