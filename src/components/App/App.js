@@ -27,7 +27,7 @@ import db from '../../db/db.js'
 import evalUtil from '../../utils/evaluate'
 
 const App = () => {
-  const [exercises, setContent] = useState([])
+  const [exercisesList, setExercisesList] = useState([])
   const [currentExercise, setCurrentExercise] = useState({})
   const [result, setResult] = useState([])
   const [editorValue, setEditorValue] = useState('')
@@ -38,11 +38,11 @@ const App = () => {
     const fetchExercises = async () => {
       // Use with json-server
       // const basic = await get('basic')
-      // setContent(basic)
+      // setExercisesList(basic)
       // setCurrentExercise(basic[0])
 
       // Use with static db
-      setContent(db.basic)
+      setExercisesList(db.basic)
       setCurrentExercise(db.basic[0])
     }
 
@@ -89,7 +89,7 @@ const App = () => {
         <GlobalStyle />
 
         <Sidebar
-          exercises={exercises}
+          exercisesList={exercisesList}
           setCurrentExercise={setCurrentExercise}
           setResult={setResult}
         />
@@ -97,17 +97,17 @@ const App = () => {
           <Header />
           {editorValue ? (
             <Container>
-              <InfoPanel
-                currentExercise={currentExercise}
-                evaluate={evaluate}
-                clearEditorValue={clearEditorValue}
-                result={result}
-                setResult={setResult}
-              />
               <Hotkeys
                 keyName="cmd+enter,ctrl+enter"
                 onKeyUp={handleSubmitShortcut}
               >
+                <InfoPanel
+                  currentExercise={currentExercise}
+                  evaluate={evaluate}
+                  clearEditorValue={clearEditorValue}
+                  result={result}
+                  setResult={setResult}
+                />
                 <Editor
                   setEditorInstance={setEditorInstance}
                   editorValue={editorValue}
