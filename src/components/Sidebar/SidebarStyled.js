@@ -1,6 +1,9 @@
 import styled from 'styled-components'
+import { defaultColors } from '../../styles/theme'
 
 import fonts from '../../styles/fonts'
+
+const { grey } = defaultColors
 
 const sidenav = `
   .sidenav {
@@ -31,7 +34,7 @@ const sidenav = `
 
     // Span tag
     .sidenav---icon-bar---u1f02 {
-      background-color: #7B7D7E !important;
+      background-color: ${grey} !important;
     }
   }
 
@@ -54,7 +57,7 @@ const sidenav = `
 
   // Exercise number
   .sidenav---navicon---3gCRo span {
-    color: #7B7D7E !important;
+    color: ${grey} !important;
     font-family: ${fonts.secondary}, sans-serif;
     font-size: 1.2rem;
   }

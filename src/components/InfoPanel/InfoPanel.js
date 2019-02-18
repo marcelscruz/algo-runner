@@ -23,6 +23,7 @@ import {
   ComparisonIcon,
   ExpectedResult,
 } from './InfoPanelStyled'
+import { defaultColors } from '../../styles/theme'
 
 /***** Libraries *****/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -34,6 +35,7 @@ const InfoPanel = ({
   results,
 }) => {
   const { name, directions, examples, solutions, tests } = currentExercise
+  const { green, grey, red } = defaultColors
 
   const handleClearEditorValue = () => {
     clearEditorValue()
@@ -70,10 +72,10 @@ const InfoPanel = ({
 
       <BottomContainer>
         <ButtonsContainer>
-          <Button onClick={handleClearEditorValue} color="#7B7D7E">
+          <Button onClick={handleClearEditorValue} color={grey}>
             Clear
           </Button>
-          <Button onClick={evaluate} color="#5D8634">
+          <Button onClick={evaluate} color={green}>
             Submit
           </Button>
         </ButtonsContainer>
@@ -86,18 +88,18 @@ const InfoPanel = ({
                 key={test.test + i}
                 background={
                   results[i] === true
-                    ? '#5D8634'
+                    ? green
                     : results[i] === false
-                    ? '#95474B'
+                    ? red
                     : 'transparent'
                 }
               >
                 <ResultIcon>
                   {results[i] === true ? (
-                    <FontAwesomeIcon icon="check" color="#5D8634" />
+                    <FontAwesomeIcon icon="check" color={green} />
                   ) : (
                     results[i] === false && (
-                      <FontAwesomeIcon icon="times" color="#95474B" />
+                      <FontAwesomeIcon icon="times" color={red} />
                     )
                   )}
                 </ResultIcon>
