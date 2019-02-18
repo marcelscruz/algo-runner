@@ -16,9 +16,7 @@ import Editor from '../Editor/Editor'
 import Sidebar from '../Sidebar/Sidebar'
 import InfoPanel from '../InfoPanel/InfoPanel'
 import Footer from '../Footer/Footer'
-
-/***** API *****/
-// import get from '../../api/get'
+import Modal from '../Modal/Modal'
 
 /***** DB *****/
 import db from '../../db/db.js'
@@ -32,6 +30,7 @@ const App = () => {
   const [results, setResults] = useState([])
   const [editorValue, setEditorValue] = useState('')
   const [editorInstance, setEditorInstance] = useState()
+  const [isModalOpen, setIsModalOpen] = useState(true)
 
   useEffect(() => {
     // Fetch exercises in initial render
@@ -71,10 +70,17 @@ const App = () => {
   // Evaluate code
   const evaluate = () => {
     evalUtil(editorValue, currentExercise.tests, setResults)
+    checkIfAllResultsAreCorrect()
   }
 
   const handleSubmitShortcut = () => {
     evaluate()
+  }
+
+  const checkIfAllResultsAreCorrect = () => {
+    const areAllResultCorrect = results.every(result => result === true)
+
+    areAllResultCorrect && setIsModalOpen(true)
   }
 
   return (
@@ -105,6 +111,10 @@ const App = () => {
                   setEditorInstance={setEditorInstance}
                   editorValue={editorValue}
                   setEditorValue={handleEditorValueChange}
+                />
+                <Modal
+                  isModalOpen={isModalOpen}
+                  setIsModalOpen={setIsModalOpen}
                 />
               </Hotkeys>
             </Container>

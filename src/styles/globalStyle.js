@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 
 /***** Styles *****/
 import tooltip from './assets/tooltip'
+import modal from './assets/modal'
 
 /***** Fonts *****/
 import fonts from './fonts'
@@ -41,5 +42,6 @@ export default createGlobalStyle`
   }
 
   ${tooltip}
+  ${modal}
   
 `
