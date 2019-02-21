@@ -18,7 +18,12 @@ import { defaultColors } from '../../styles/theme'
 import ReactModal from 'react-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Modal = ({ isModalOpen, setIsModalOpen, goToNextExercise }) => {
+const Modal = ({
+  isModalOpen,
+  currentExerciseIndex,
+  setIsModalOpen,
+  goToExercise,
+}) => {
   const { green, grey } = defaultColors
 
   const handleCloseModal = () => {
@@ -26,7 +31,7 @@ const Modal = ({ isModalOpen, setIsModalOpen, goToNextExercise }) => {
   }
 
   const handleGoToNextExercise = () => {
-    goToNextExercise()
+    goToExercise(currentExerciseIndex + 1)
     setIsModalOpen(false)
   }
 
@@ -59,6 +64,7 @@ export default Modal
 
 Modal.propTypes = {
   isModalOpen: PropTypes.bool.isRequired,
+  currentExerciseIndex: PropTypes.number.isRequired,
   setIsModalOpen: PropTypes.func.isRequired,
-  goToNextExercise: PropTypes.func.isRequired,
+  goToExercise: PropTypes.func.isRequired,
 }

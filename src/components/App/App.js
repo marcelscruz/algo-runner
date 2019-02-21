@@ -85,10 +85,11 @@ const App = () => {
     areAllResultCorrect && setIsModalOpen(true)
   }
 
-  const goToNextExercise = () => {
-    if (exercisesList[currentExerciseIndex + 1]) {
-      setCurrentExercise(exercisesList[currentExerciseIndex + 1])
-      setCurrentExerciseIndex(currentExerciseIndex + 1)
+  const goToExercise = exerciseIndex => {
+    if (exercisesList[exerciseIndex]) {
+      setResults([])
+      setCurrentExercise(exercisesList[exerciseIndex])
+      setCurrentExerciseIndex(exerciseIndex)
     }
   }
 
@@ -125,8 +126,9 @@ const App = () => {
                 />
                 <Modal
                   isModalOpen={isModalOpen}
+                  currentExerciseIndex={currentExerciseIndex}
                   setIsModalOpen={setIsModalOpen}
-                  goToNextExercise={goToNextExercise}
+                  goToExercise={goToExercise}
                 />
               </Hotkeys>
             </Container>
