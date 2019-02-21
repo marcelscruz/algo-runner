@@ -12,7 +12,7 @@ import SideNav, {
 } from '@trendmicro/react-sidenav'
 import '@trendmicro/react-sidenav/dist/react-sidenav.css'
 
-/***** Styles *****/
+/***** Components *****/
 import { SidebarStyled } from './SidebarStyled'
 
 const Sidebar = ({ exercisesList, setCurrentExercise, setResults }) => {

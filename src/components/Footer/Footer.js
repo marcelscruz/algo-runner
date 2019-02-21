@@ -1,7 +1,7 @@
 /***** React *****/
 import React, { useState } from 'react'
 
-/***** Styles *****/
+/***** Components *****/
 import {
   FooterStyled,
   SocialMediaLink,

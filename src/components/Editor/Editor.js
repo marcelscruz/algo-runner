@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-/***** Styles *****/
+/***** Components *****/
 import { EditorContainer } from './EditorStyled'
 
 /***** Libraries *****/

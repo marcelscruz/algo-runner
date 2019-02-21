@@ -1,7 +1,7 @@
 /***** React *****/
 import React from 'react'
 
-/***** Styles *****/
+/***** Components *****/
 import { HeaderStyled, Title, TitleSub } from './HeaderStyled'
 
 const Header = () => (
