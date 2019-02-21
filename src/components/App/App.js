@@ -32,6 +32,7 @@ const App = () => {
   const [editorValue, setEditorValue] = useState('')
   const [editorInstance, setEditorInstance] = useState()
   const [isModalOpen, setIsModalOpen] = useState(true)
+  const [isLastExercise, setIsLastExercise] = useState(false)
 
   useEffect(() => {
     // Fetch exercises in initial render
@@ -82,6 +83,9 @@ const App = () => {
   const checkIfAllResultsAreCorrect = () => {
     const areAllResultCorrect = results.every(result => result === true)
 
+    // Check if is last exercise
+    currentExerciseIndex + 1 === exercisesList.length && setIsLastExercise(true)
+
     areAllResultCorrect && setIsModalOpen(true)
   }
 
@@ -126,6 +130,7 @@ const App = () => {
                 />
                 <Modal
                   isModalOpen={isModalOpen}
+                  isLastExercise={isLastExercise}
                   currentExerciseIndex={currentExerciseIndex}
                   setIsModalOpen={setIsModalOpen}
                   goToExercise={goToExercise}

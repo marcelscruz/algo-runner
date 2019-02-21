@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const overlay = {
-  background: 'rgba(0, 0, 0, 0.8)',
+  background: 'rgba(0, 0, 0, 0.6)',
   zIndex: '10000',
 }
 
@@ -24,6 +24,13 @@ export const ModalStyled = styled.div`
   padding: 0rem 5rem;
   display: flex;
   width: 100%;
+`
+
+export const Emoji = styled.span.attrs({
+  role: 'img',
+  ariaLabel: props => props.label,
+})`
+  font-size: 6rem;
 `
 
 export const Title = styled.h2`
