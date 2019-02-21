@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-/***** Styles *****/
+/***** Components *****/
 import {
   overlay,
   content,
@@ -10,18 +10,23 @@ import {
   Title,
   Subtitle,
   CTA,
-  Button,
 } from './ModalStyled'
+import Button from '../assets/Button'
 import { defaultColors } from '../../styles/theme'
 
 /***** Libraries *****/
 import ReactModal from 'react-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Modal = ({ isModalOpen, setIsModalOpen }) => {
+const Modal = ({ isModalOpen, setIsModalOpen, goToNextExercise }) => {
   const { green, grey } = defaultColors
 
   const handleCloseModal = () => {
+    setIsModalOpen(false)
+  }
+
+  const handleGoToNextExercise = () => {
+    goToNextExercise()
     setIsModalOpen(false)
   }
 
@@ -38,8 +43,12 @@ const Modal = ({ isModalOpen, setIsModalOpen }) => {
         <Subtitle>Ready for the next challenge?</Subtitle>
 
         <CTA>
-          <Button color={grey}>Stay</Button>
-          <Button color={green}>Next</Button>
+          <Button color={grey} onClick={handleCloseModal}>
+            Stay
+          </Button>
+          <Button color={green} onClick={handleGoToNextExercise}>
+            Next
+          </Button>
         </CTA>
       </ModalStyled>
     </ReactModal>
@@ -51,4 +60,5 @@ export default Modal
 Modal.propTypes = {
   isModalOpen: PropTypes.bool.isRequired,
   setIsModalOpen: PropTypes.func.isRequired,
+  goToNextExercise: PropTypes.func.isRequired,
 }

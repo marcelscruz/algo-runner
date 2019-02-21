@@ -27,6 +27,7 @@ import evalUtil from '../../utils/evaluate'
 const App = () => {
   const [exercisesList, setExercisesList] = useState([])
   const [currentExercise, setCurrentExercise] = useState({})
+  const [currentExerciseIndex, setCurrentExerciseIndex] = useState()
   const [results, setResults] = useState([])
   const [editorValue, setEditorValue] = useState('')
   const [editorInstance, setEditorInstance] = useState()
@@ -37,6 +38,7 @@ const App = () => {
     const fetchExercises = async () => {
       setExercisesList(db.basic)
       setCurrentExercise(db.basic[0])
+      setCurrentExerciseIndex(0)
     }
 
     fetchExercises()
@@ -83,6 +85,13 @@ const App = () => {
     areAllResultCorrect && setIsModalOpen(true)
   }
 
+  const goToNextExercise = () => {
+    if (exercisesList[currentExerciseIndex + 1]) {
+      setCurrentExercise(exercisesList[currentExerciseIndex + 1])
+      setCurrentExerciseIndex(currentExerciseIndex + 1)
+    }
+  }
+
   return (
     <ThemeProvider theme={themeDark}>
       <AppStyled>
@@ -91,6 +100,8 @@ const App = () => {
         <Sidebar
           exercisesList={exercisesList}
           setCurrentExercise={setCurrentExercise}
+          currentExerciseIndex={currentExerciseIndex}
+          setCurrentExerciseIndex={setCurrentExerciseIndex}
           setResults={setResults}
         />
         <Main>
@@ -115,6 +126,7 @@ const App = () => {
                 <Modal
                   isModalOpen={isModalOpen}
                   setIsModalOpen={setIsModalOpen}
+                  goToNextExercise={goToNextExercise}
                 />
               </Hotkeys>
             </Container>

@@ -26,14 +26,6 @@ export const ModalStyled = styled.div`
   width: 100%;
 `
 
-export const Header = styled.div`
-  /* background: blue; */
-  height: 3rem;
-  width: 100%;
-`
-
-export const Content = styled.div``
-
 export const Title = styled.h2`
   font-size: 3rem;
   font-weight: bolder;
@@ -46,12 +38,3 @@ export const Subtitle = styled.h3`
 `
 
 export const CTA = styled.div``
-
-export const Button = styled.button`
-  background: ${props => props.color};
-  color: ${props => props.theme.textColor};
-  border: none;
-  height: 2.5rem;
-  margin: 0 0.5rem;
-  width: 8rem;
-`

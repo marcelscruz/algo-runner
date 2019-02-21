@@ -15,21 +15,32 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css'
 /***** Components *****/
 import { SidebarStyled } from './SidebarStyled'
 
-const Sidebar = ({ exercisesList, setCurrentExercise, setResults }) => {
+const Sidebar = ({
+  exercisesList,
+  setCurrentExercise,
+  currentExerciseIndex,
+  setCurrentExerciseIndex,
+  setResults,
+}) => {
   return (
     <SidebarStyled>
       <SideNav
         onSelect={selected => {
           setResults([]) // Fix glitch on result background
           setCurrentExercise(exercisesList[selected - 1])
+          setCurrentExerciseIndex(selected - 1)
         }}
         className="sidenav"
       >
         <Toggle />
-        <Nav defaultSelected="1" className="nav">
-          {exercisesList.map(exercise => {
+        <Nav className="nav">
+          {exercisesList.map((exercise, index) => {
             return (
-              <NavItem eventKey={exercise.id} key={exercise.id}>
+              <NavItem
+                eventKey={exercise.id}
+                key={exercise.id}
+                active={currentExerciseIndex === index}
+              >
                 <NavIcon>
                   <span>{exercise.id}</span>
                 </NavIcon>
@@ -47,6 +58,8 @@ export default Sidebar
 
 Sidebar.propTypes = {
   exercisesList: PropTypes.array.isRequired,
+  currentExerciseIndex: PropTypes.number.isRequired,
   setCurrentExercise: PropTypes.func.isRequired,
+  setCurrentExerciseIndex: PropTypes.func.isRequired,
   setResults: PropTypes.func.isRequired,
 }
