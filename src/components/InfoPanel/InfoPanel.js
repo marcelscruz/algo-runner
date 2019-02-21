@@ -22,11 +22,14 @@ import {
   ComparisonIcon,
   ExpectedResult,
 } from './InfoPanelStyled'
-import Button from '../assets/Button'
+import Button, { ButtonShortcut } from '../assets/Button'
 import { defaultColors } from '../../styles/theme'
 
 /***** Libraries *****/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+/***** Utils *****/
+import getOS from '../../utils/getOS'
 
 const InfoPanel = ({
   currentExercise,
@@ -74,9 +77,17 @@ const InfoPanel = ({
         <ButtonsContainer>
           <Button onClick={handleClearEditorValue} color={grey}>
             Clear
+            <br />
+            <ButtonShortcut>
+              ({getOS() === 'MacOS' ? 'cmd' : 'ctrl'} + c)
+            </ButtonShortcut>
           </Button>
           <Button onClick={evaluate} color={green}>
             Submit
+            <br />
+            <ButtonShortcut>
+              ({getOS() === 'MacOS' ? 'cmd' : 'ctrl'} + enter)
+            </ButtonShortcut>
           </Button>
         </ButtonsContainer>
 

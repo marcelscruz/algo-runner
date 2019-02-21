@@ -12,12 +12,13 @@ import {
   Subtitle,
   CTA,
 } from './ModalStyled'
-import Button from '../assets/Button'
+import Button, { ButtonShortcut } from '../assets/Button'
 import { defaultColors } from '../../styles/theme'
 
 /***** Libraries *****/
 import ReactModal from 'react-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Hotkeys from 'react-hot-keys'
 
 const Modal = ({
   isModalOpen,
@@ -42,8 +43,6 @@ const Modal = ({
     setIsModalOpen(false)
   }
 
-  console.log(isLastExercise)
-
   return (
     <ReactModal
       isOpen={isModalOpen}
@@ -52,7 +51,7 @@ const Modal = ({
     >
       <ModalStyled>
         {isLastExercise ? (
-          <>
+          <Hotkeys keyName="enter" onKeyUp={handleStartAgain}>
             {/* eslint-disable-next-line */}
             <Emoji label="trophy">🏆</Emoji>
 
@@ -62,11 +61,13 @@ const Modal = ({
             <CTA>
               <Button color={green} onClick={handleStartAgain}>
                 Start again
+                <br />
+                <ButtonShortcut>(enter)</ButtonShortcut>
               </Button>
             </CTA>
-          </>
+          </Hotkeys>
         ) : (
-          <>
+          <Hotkeys keyName="enter" onKeyUp={handleGoToNextExercise}>
             <FontAwesomeIcon icon="check" className="modal-check" />
 
             <Title>Great job!</Title>
@@ -75,12 +76,16 @@ const Modal = ({
             <CTA>
               <Button color={grey} onClick={handleCloseModal}>
                 Stay
+                <br />
+                <ButtonShortcut>(esc)</ButtonShortcut>
               </Button>
               <Button color={green} onClick={handleGoToNextExercise}>
                 Next
+                <br />
+                <ButtonShortcut>(enter)</ButtonShortcut>
               </Button>
             </CTA>
-          </>
+          </Hotkeys>
         )}
       </ModalStyled>
     </ReactModal>

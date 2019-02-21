@@ -117,24 +117,26 @@ const App = () => {
                 keyName="cmd+enter,ctrl+enter"
                 onKeyUp={handleSubmitShortcut}
               >
-                <InfoPanel
-                  currentExercise={currentExercise}
-                  clearEditorValue={clearEditorValue}
-                  evaluate={evaluate}
-                  results={results}
-                />
-                <Editor
-                  setEditorInstance={setEditorInstance}
-                  editorValue={editorValue}
-                  setEditorValue={handleEditorValueChange}
-                />
-                <Modal
-                  isModalOpen={isModalOpen}
-                  isLastExercise={isLastExercise}
-                  currentExerciseIndex={currentExerciseIndex}
-                  setIsModalOpen={setIsModalOpen}
-                  goToExercise={goToExercise}
-                />
+                <Hotkeys keyName="cmd+c,ctrl+c" onKeyUp={clearEditorValue}>
+                  <InfoPanel
+                    currentExercise={currentExercise}
+                    clearEditorValue={clearEditorValue}
+                    evaluate={evaluate}
+                    results={results}
+                  />
+                  <Editor
+                    setEditorInstance={setEditorInstance}
+                    editorValue={editorValue}
+                    setEditorValue={handleEditorValueChange}
+                  />
+                  <Modal
+                    isModalOpen={isModalOpen}
+                    isLastExercise={isLastExercise}
+                    currentExerciseIndex={currentExerciseIndex}
+                    setIsModalOpen={setIsModalOpen}
+                    goToExercise={goToExercise}
+                  />
+                </Hotkeys>
               </Hotkeys>
             </Container>
           ) : (
