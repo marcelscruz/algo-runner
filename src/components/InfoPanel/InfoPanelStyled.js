@@ -77,39 +77,6 @@ export const ButtonsContainer = styled.div`
   width: 100%;
 `
 
-export const Button = styled.button`
-  background: ${props => props.color};
-  border: none;
-  border-radius: 50px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-  color: ${props => props.theme.textColor};
-  cursor: pointer;
-  /* 
-  TODO: try terciary font here
-   */
-  font-family: ${fonts.secondary}, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  height: 2.5rem;
-  margin: 0 1rem;
-  transition: all 0.3s;
-  width: 8rem;
-
-  &:hover {
-    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);
-    transform: translate(0, -0.1rem) scale(1.05);
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    box-shadow: 0 7px 5px rgba(0, 0, 0, 0.1);
-    transform: translate(0, -0.03rem) scale(1.03);
-  }
-`
-
 export const ResultPanel = styled.div`
   align-items: flex-start;
   display: flex;

@@ -1,16 +1,16 @@
 /***** React *****/
 import React, { useState, useEffect } from 'react'
 
-/***** Styles *****/
+/***** Style *****/
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../../styles/globalStyle'
 import { themeDark } from '../../styles/theme'
-import { AppStyled, Main, Container, Loading } from './AppStyled'
 
 /***** Libraries *****/
 import Hotkeys from 'react-hot-keys'
 
 /***** Components *****/
+import { AppStyled, Main, Container, Loading } from './AppStyled'
 import Header from '../Header/Header'
 import Editor from '../Editor/Editor'
 import Sidebar from '../Sidebar/Sidebar'

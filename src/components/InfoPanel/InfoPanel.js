@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-/***** Styles *****/
+/***** Components *****/
 import {
   InfoPanelContainer,
   TopContainer,
@@ -15,7 +15,6 @@ import {
   SolutionsList,
   Solution,
   ButtonsContainer,
-  Button,
   ResultPanel,
   Result,
   ResultIcon,
@@ -23,6 +22,7 @@ import {
   ComparisonIcon,
   ExpectedResult,
 } from './InfoPanelStyled'
+import Button from '../assets/Button'
 import { defaultColors } from '../../styles/theme'
 
 /***** Libraries *****/
